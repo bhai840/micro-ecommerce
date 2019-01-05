@@ -117,11 +117,11 @@ pipeline {
 
            
 
-           stage ("Kubernetes_deploy") {
+    /*       stage ("Kubernetes_deploy") {
 
 
 
-               steps{
+               steps {
 
                 //     sh "kubectl get nodes"
 
@@ -153,7 +153,7 @@ pipeline {
 
 
 
-        }
+        } */
 
         
 
