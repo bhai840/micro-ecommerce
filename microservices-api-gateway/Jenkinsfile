@@ -21,9 +21,7 @@ pipeline {
    //  }
 
      tools {
-        def pom = readMavenPom file:'pom.xml'
-        print pom.version
-        env.version = pom.version
+      
         maven 'localmaven'
 
          
@@ -37,11 +35,13 @@ pipeline {
     stages {
 
         stage ('Initialize') {
-
+               def pom = readMavenPom file:'pom.xml'
+               print pom.version
+               env.version = pom.versio
             steps {
 
                 sh '''
-
+                    n
                     echo "PATH = ${PATH}"
 
                     echo "M2_HOME = ${M2_HOME}"
