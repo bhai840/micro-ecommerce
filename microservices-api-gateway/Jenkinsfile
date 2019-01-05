@@ -7,12 +7,7 @@ pipeline {
 
     dockerImage = ''  
         
-    def pom = readMavenPom file:'pom.xml'
-
-    print pom.version
-
-    env.version = pom.version
-
+   
 }
 
     agent any// { any
@@ -26,7 +21,9 @@ pipeline {
    //  }
 
      tools {
-
+        def pom = readMavenPom file:'pom.xml'
+        print pom.version
+        env.version = pom.version
         maven 'localmaven'
 
          
