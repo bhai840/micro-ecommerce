@@ -1,7 +1,7 @@
 pipeline {
 
     environment {
-    registry = "rahulnallari/microservice-springboot"
+    registry = "rahulnallari/microservices-ecommerce"
 
     registryCredential = 'dockerhub'
 
