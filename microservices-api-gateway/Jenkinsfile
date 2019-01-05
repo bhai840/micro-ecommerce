@@ -50,15 +50,14 @@ pipeline {
         }
 
           stage ('Build_API_JAR') {
-
+            def pom = readMavenPom file:'pom.xml'
+            print pom.version
+            env.version = pom.version 
+              
             steps {
 
                 sh 'mvn clean install'
                 
-                def pom = readMavenPom file:'pom.xml'
-                print pom.version
-                env.version = pom.version
-
                 //sh 'mvn -Dmaven.test.failure.ignore=true install'
 
                 //sh "docker build -t spring-boot-web:${env.BUILD_ID} ."
