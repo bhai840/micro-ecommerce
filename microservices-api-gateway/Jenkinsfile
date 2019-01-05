@@ -1,7 +1,7 @@
 pipeline {
 
     environment {
-
+    git url: 'https://github.com/bhai840/micro-ecommerce.git', branch: 'master', subDir: 'microservices-api-gateway'
     registry = "rahulnallari/microservice-springboot"
 
     registryCredential = 'dockerhub'
