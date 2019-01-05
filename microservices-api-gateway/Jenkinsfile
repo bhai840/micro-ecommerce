@@ -54,6 +54,7 @@ pipeline {
             steps {
 
                 sh 'mvn clean install'
+                
                 def pom = readMavenPom file:'pom.xml'
                 print pom.version
                 env.version = pom.version
@@ -84,7 +85,7 @@ pipeline {
 
                     script {
 
-                        dockerImage = docker.build registry:${env.version}
+                        dockerImage = docker.build registry:"${env.version}"
 
         }
 
