@@ -49,17 +49,9 @@ pipeline {
             }
 
         }
-        stage ('Publish') {
-           def pom = readMavenPom file:'pom.xml'
-           print pom.version
-           env.version = pom.version 
-        
-        }
+       
           stage ('Build_API_JAR') {
-              // sh 'mvn clean install' 
-              
-               
-            //}
+           
             steps {
 
                 sh 'mvn clean install'
