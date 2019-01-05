@@ -5,7 +5,13 @@ pipeline {
 
     registryCredential = 'dockerhub'
 
-    dockerImage = ''    
+    dockerImage = ''  
+        
+    def pom = readMavenPom file:'pom.xml'
+
+    print pom.version
+
+    env.version = pom.version
 
 }
 
@@ -50,13 +56,13 @@ pipeline {
         }
 
           stage ('Build_API_JAR') {
-               sh 'mvn clean install' 
+             //  sh 'mvn clean install' 
               
-               def pom = readMavenPom file:'pom.xml'
-               print pom.version
-               env.version = pom.version 
-          }
-            /*steps {
+              // def pom = readMavenPom file:'pom.xml'
+              // print pom.version
+              // env.version = pom.version 
+          //}
+            steps {
 
                 sh 'mvn clean install'
                 
@@ -64,9 +70,9 @@ pipeline {
 
                 //sh "docker build -t spring-boot-web:${env.BUILD_ID} ."
 
-                }*/
+                }
 
-          /*  post {
+            post {
 
                 success {
 
@@ -76,9 +82,9 @@ pipeline {
 
                    }
 
-                } */
+                } 
 
-          //}   
+          }   
 
             stage ('Building_docker_images') {
 
